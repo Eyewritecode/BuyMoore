@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  
   devise_for :users
-  resources :listings
+  resources :listings do 
+    resources :orders #Including order's routes in the listing URL
+  end
+
   get 'pages/about'
   get 'seller' => "listings#seller"
   get 'pages/contact'
